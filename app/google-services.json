@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "523069480899",
+    "project_id": "radiola-4fe42",
+    "storage_bucket": "radiola-4fe42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523069480899:android:d7b135a2a4cd8429b12776",
+        "android_client_info": {
+          "package_name": "com.example.radiola"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523069480899-kb7d8bf35fk1kgfhc5o5fort1g68pvc7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjSpd9FcS2hoDO3Xs7cySpqCTR0WynYJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523069480899-kb7d8bf35fk1kgfhc5o5fort1g68pvc7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
