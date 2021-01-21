@@ -25,5 +25,4 @@ object AppModule {
         .error(R.drawable.ic_launcher_foreground)
         .diskCacheStrategy(DiskCacheStrategy.DATA)
     )
-
 }
