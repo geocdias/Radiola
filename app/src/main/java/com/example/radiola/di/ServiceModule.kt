@@ -2,6 +2,7 @@ package com.example.radiola.di
 
 
 import android.content.Context
+import com.example.radiola.data.remote.MusicDatabase
 import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.audio.AudioAttributes
@@ -41,5 +42,9 @@ object ServiceModule {
     @ApplicationContext context: Context,
     audioAttributes: AudioAttributes
   ) = DefaultDataSourceFactory(context, Util.getUserAgent(context, "Radio App"))
+
+  @ServiceScoped
+  @Provides
+  fun provideMusicDatabase() = MusicDatabase()
 
 }
