@@ -8,12 +8,16 @@ import androidx.media.MediaBrowserServiceCompat
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import javax.inject.Inject
 
+private const val SERVICE_DEBUG_TAG = "Music Service"
+
+@AndroidEntryPoint
 class MusicService: MediaBrowserServiceCompat() {
 
   @Inject
@@ -35,7 +39,7 @@ class MusicService: MediaBrowserServiceCompat() {
       PendingIntent.getActivity(this, 0, it, 0)
     }
 
-    mediaSession = MediaSessionCompat(this, "radio service").apply {
+    mediaSession = MediaSessionCompat(this, SERVICE_DEBUG_TAG).apply {
       setSessionActivity(activityIntent)
       isActive = true
     }
