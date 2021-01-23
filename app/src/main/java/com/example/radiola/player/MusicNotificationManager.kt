@@ -24,7 +24,9 @@ class MusicNotificationManager(
   private val notificationManager: PlayerNotificationManager
 
   init {
+    /*This is a helper for accessing features in MediaSession and allows an app to interact with an ongoing media session.*/
     val mediaController = MediaControllerCompat(context, sessionToken)
+
     notificationManager = PlayerNotificationManager.createWithNotificationChannel(
       context,
       NOTIFICATION_CHANNEL_ID,

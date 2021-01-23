@@ -66,9 +66,10 @@ class FirebaseMusicSource @Inject constructor(private val musicDatabase: MusicDa
       .build()
 
     MediaBrowserCompat.MediaItem(mediaDescription, FLAG_PLAYABLE)
-  }
+  }.toMutableList()
 
   private val onReadyListeners = mutableListOf<(Boolean) -> Unit>()
+
   private var state: State = CREATED
     set(value) {
       if(value == INITIALIZED || value == ERROR) {
