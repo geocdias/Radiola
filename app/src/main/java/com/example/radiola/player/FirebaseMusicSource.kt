@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 class FirebaseMusicSource @Inject constructor(private val musicDatabase: MusicDatabase) {
 
-  private var songs = emptyList<MediaMetadataCompat>()
+   var songs = emptyList<MediaMetadataCompat>()
 
   /**
    * Fetch all songs from firebase and convert to  MediaMetadataCompat that contains

@@ -3,8 +3,12 @@ package com.example.radiola.player
 import android.app.PendingIntent
 import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat
+import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaSessionCompat
 import androidx.media.MediaBrowserServiceCompat
+import com.example.radiola.player.callbacks.MusicPlaybackPrepare
+import com.example.radiola.player.callbacks.MusicPlayerEventListener
+import com.example.radiola.player.callbacks.MusicPlayerNotificationListener
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
@@ -26,12 +30,20 @@ class MusicService: MediaBrowserServiceCompat() {
   @Inject
   lateinit var exoPlayer: SimpleExoPlayer
 
+  @Inject
+  lateinit var firebaseMusicSource: FirebaseMusicSource
+
+  private lateinit var musicNotificationManager: MusicNotificationManager
+
   private val serviceJob = Job()
   private val serviceScope = CoroutineScope(Dispatchers.Main + serviceJob)
 
-  private  lateinit var mediaSession: MediaSessionCompat
+  private lateinit var mediaSession: MediaSessionCompat
   private lateinit var mediaSessionConnector: MediaSessionConnector
 
+  private var curPlayingSong: MediaMetadataCompat? = null
+
+  var isForegroundService = false
 
   override fun onCreate() {
     super.onCreate()
@@ -46,8 +58,37 @@ class MusicService: MediaBrowserServiceCompat() {
 
     sessionToken = mediaSession.sessionToken
 
+    musicNotificationManager = MusicNotificationManager(
+      this,
+      mediaSession.sessionToken,
+      MusicPlayerNotificationListener(this)
+    ) {
+
+    }
+
+    val musicPlaybackPreparer = MusicPlaybackPrepare(firebaseMusicSource) {
+      curPlayingSong = it
+      preparePlayer(firebaseMusicSource.songs, it, true)
+    }
+
     mediaSessionConnector = MediaSessionConnector(mediaSession)
+    mediaSessionConnector.setPlaybackPreparer(musicPlaybackPreparer)
     mediaSessionConnector.setPlayer(exoPlayer)
+
+    exoPlayer.addListener(MusicPlayerEventListener(this))
+
+    musicNotificationManager.showNotification(exoPlayer)
+  }
+
+  private fun preparePlayer(
+    songs: List<MediaMetadataCompat>,
+    songToPlay: MediaMetadataCompat?,
+    playNow: Boolean
+  ) {
+    val curlSongIndex = if(curPlayingSong == null) 0 else songs.indexOf(songToPlay)
+    exoPlayer.prepare(firebaseMusicSource.asMediaSource(defaultDataSourceFactory))
+    exoPlayer.seekTo(curlSongIndex, 0L)
+    exoPlayer.playWhenReady = playNow
   }
 
   override fun onGetRoot(
