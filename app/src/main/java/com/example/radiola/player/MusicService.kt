@@ -12,6 +12,7 @@ import com.example.radiola.player.callbacks.MusicPlaybackPrepare
 import com.example.radiola.player.callbacks.MusicPlayerEventListener
 import com.example.radiola.player.callbacks.MusicPlayerNotificationListener
 import com.example.radiola.util.Constants.MEDIA_ROOT_ID
+import com.example.radiola.util.Constants.NETWORK_ERROR
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
@@ -137,6 +138,7 @@ class MusicService : MediaBrowserServiceCompat() {
               isPlayerInitialized = true
             }
           } else {
+            mediaSession.sendSessionEvent(NETWORK_ERROR, null)
             result.sendResult(null)
           }
         }
