@@ -1,10 +1,9 @@
-package com.example.radiola
+package com.example.radiola.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bumptech.glide.RequestManager
+import com.example.radiola.R
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
