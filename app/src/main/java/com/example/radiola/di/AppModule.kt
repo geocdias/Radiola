@@ -5,6 +5,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.radiola.R
+import com.example.radiola.adapters.SwipeSongAdapter
 import com.example.radiola.player.MusicServiceConnection
 import dagger.Module
 import dagger.Provides
@@ -31,4 +32,8 @@ object AppModule {
   @Provides
   fun provideMusicServiceConnection(@ApplicationContext context: Context) =
     MusicServiceConnection(context)
+
+  @Singleton
+  @Provides
+  fun provideSwipeSongAdapter() = SwipeSongAdapter()
 }
