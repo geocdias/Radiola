@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.media.session.PlaybackStateCompat
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.RequestManager
 import com.example.radiola.R
@@ -56,6 +58,18 @@ class MainActivity : AppCompatActivity() {
       }
     }
 
+    swipeSongAdapter.setOnClickListener {
+      navHostFragment.findNavController().navigate(R.id.globalActionToSongFragment)
+    }
+
+    navHostFragment.findNavController().addOnDestinationChangedListener { _, destination, _ ->
+      when(destination.id) {
+        R.id.songFragment -> showBottomBar(false)
+        R.id.homeFragment -> showBottomBar(true)
+        else -> showBottomBar(true)
+      }
+    }
+
     subcribeToObservers()
   }
 
@@ -65,6 +79,12 @@ class MainActivity : AppCompatActivity() {
       vpSong.currentItem = newItemIndex
       currentPlayingSong = song
     }
+  }
+
+  private fun showBottomBar(isShow: Boolean) {
+    ivCurSongImage.isVisible = isShow
+    vpSong.isVisible = isShow
+    ivPlayPause.isVisible = isShow
   }
 
   private fun subcribeToObservers() {

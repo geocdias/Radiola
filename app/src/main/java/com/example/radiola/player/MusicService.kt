@@ -79,7 +79,7 @@ class MusicService : MediaBrowserServiceCompat() {
       mediaSession.sessionToken,
       MusicPlayerNotificationListener(this)
     ) {
-      //Update de current duration os de songs
+      //Update de current duration of songs
       currentSongDuration = exoPlayer.duration
     }
 
