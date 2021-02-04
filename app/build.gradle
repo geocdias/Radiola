@@ -72,7 +72,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$coroutine_lifecycle_version"
 
     // Navigation Component
-    def navigation_version = '2.3.2'
+    def navigation_version = '2.3.3'
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
 
@@ -88,14 +88,14 @@ dependencies {
     def hilt_version = '2.28-alpha'
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
-    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha03"
 
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
     // Firebase Firestore
-    implementation 'com.google.firebase:firebase-firestore:22.0.1'
+    implementation 'com.google.firebase:firebase-firestore:22.0.2'
 
     // Firebase Storage KTX
     implementation 'com.google.firebase:firebase-storage-ktx:19.2.1'
@@ -106,7 +106,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
 
     // ExoPlayer
-    api "com.google.android.exoplayer:exoplayer-core:2.11.8"
-    api "com.google.android.exoplayer:exoplayer-ui:2.11.8"
-    api "com.google.android.exoplayer:extension-mediasession:2.11.8"
+    def exoplayer_version = '2.11.8'
+    api "com.google.android.exoplayer:exoplayer-core:$exoplayer_version"
+    api "com.google.android.exoplayer:exoplayer-ui:$exoplayer_version"
+    api "com.google.android.exoplayer:extension-mediasession:$exoplayer_version"
 }
