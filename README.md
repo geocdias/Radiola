@@ -6,7 +6,7 @@ This project is part of my personal portfolio for learning and training of the k
 
 The idea of the App is:
 
-_"Create a clone of Spotfy to list my favorite songs"._
+_"Create a player that plays anime songs stored in the cloud as spotfy"._
 
 ## Functionalities
 
