@@ -20,12 +20,10 @@ _"Create a clone of Spotfy to list my favorite songs"._
 ### Prerequisites
 
 To run this project you'll need to have a account on firebase and enable cloud firestore and storage where you'll put de information about de media and the media respectively.
-You can find the information that is use [here](https://github.com/steniowagner/mindcast-server)
 
 ### Connecting the App with Firebase
 
 Follow the instructions on the [firebase-setup](https://firebase.google.com/docs/android/setup).
-
 
 ## Built With
 
