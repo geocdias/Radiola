@@ -7,7 +7,6 @@ This project is part of my personal portfolio for learning and training of the k
 The idea of the App is:
 
 _"Create a clone of Spotfy to list my favorite songs"._
-**PS:** Project still under development
 
 ## Functionalities
 
