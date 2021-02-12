@@ -37,7 +37,7 @@ Follow the instructions on the [firebase-setup](https://firebase.google.com/docs
 - [Firebase Firestore](https://firebase.google.com/docs/firestore) - Cloud NoSQL Database
 - [Firebase Storage](https://firebase.google.com/docs/storage) - Object storage service
 - [ExoPlayer](https://exoplayer.dev) - An alternative to Android's MediaPlayer API for playing audio and video
-- [MVVM Architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+- [MVVM Architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) - Separation of the development of the graphical user interface from the development of the business logic.
 
 
 ## Contributing
