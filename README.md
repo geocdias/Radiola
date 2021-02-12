@@ -8,7 +8,7 @@ This project is part of my personal portfolio for learning and training of the k
 
 The idea of the App is:
 
-_"Create a player that plays anime songs stored in the cloud as spotfy"._
+_"Create a player that plays anime songs stored in the cloud as Spotfy"._
 
 ## Functionalities
 
