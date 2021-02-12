@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.radiola.ui.fragments.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="@string/home_fragment_title"
+        tools:layout="@layout/fragment_home"/>
+
     <fragment
         android:id="@+id/songFragment"
         android:name="com.example.radiola.ui.fragments.SongFragment"
-        android:label="SongFragment" />
+        android:label=""
+        tools:layout="@layout/fragment_song"/>
 
     <action
         android:id="@+id/globalActionToSongFragment"

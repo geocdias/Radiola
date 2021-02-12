@@ -5,7 +5,11 @@ import android.os.Bundle
 import android.support.v4.media.session.PlaybackStateCompat
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.RequestManager
 import com.example.radiola.R
@@ -35,9 +39,19 @@ class MainActivity : AppCompatActivity() {
 
   private var playbackState: PlaybackStateCompat? = null
 
+  private lateinit var navController: NavController
+  private lateinit var appBarConfiguration: AppBarConfiguration
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
+
+    setSupportActionBar(appToolbar)
+
+    navController = findNavController(R.id.navHostFragment)
+    appBarConfiguration = AppBarConfiguration(navController.graph)
+
+    setupActionBarWithNavController(navController, appBarConfiguration)
 
     vpSong.adapter = swipeSongAdapter
 
@@ -59,10 +73,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     swipeSongAdapter.setOnClickListener {
-      navHostFragment.findNavController().navigate(R.id.globalActionToSongFragment)
+      navController.navigate(R.id.globalActionToSongFragment)
     }
 
-    navHostFragment.findNavController().addOnDestinationChangedListener { _, destination, _ ->
+    navController.addOnDestinationChangedListener { _, destination, _ ->
       when(destination.id) {
         R.id.songFragment -> showBottomBar(false)
         R.id.homeFragment -> showBottomBar(true)
@@ -71,6 +85,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     subcribeToObservers()
+  }
+
+  override fun onSupportNavigateUp(): Boolean {
+    return navController.navigateUp() || super.onSupportNavigateUp()
   }
 
   private fun switchViewPagerToCurrentSong(song: Song) {
