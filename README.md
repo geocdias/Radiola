@@ -1,12 +1,14 @@
 # Radiola
 
+![Home Screen](https://github.com/geocdias/Radiola/blob/main/screenshots/home_and_player.png?s=200)
+
 ## About this Project
 
-This project is part of my personal portfolio for learning and training of the kotlin language and android SDK.
+This project is part of my personal portfolio for learning and training of the kotlin language and Android SDK.
 
 The idea of the App is:
 
-_"Create a player that plays anime songs stored in the cloud as spotfy"._
+_"Create a player that plays anime songs stored in the cloud as Spotfy"._
 
 ## Functionalities
 
@@ -19,6 +21,8 @@ _"Create a player that plays anime songs stored in the cloud as spotfy"._
 ### Prerequisites
 
 To run this project you'll need to have a account on firebase and enable cloud firestore and storage where you'll put de information about de media and the media respectively.
+
+You can get some sample of media [here](https://github.com/geocdias/Radiola/tree/main/media)
 
 ### Connecting the App with Firebase
 
@@ -33,12 +37,13 @@ Follow the instructions on the [firebase-setup](https://firebase.google.com/docs
 - [Firebase Firestore](https://firebase.google.com/docs/firestore) - Cloud NoSQL Database
 - [Firebase Storage](https://firebase.google.com/docs/storage) - Object storage service
 - [ExoPlayer](https://exoplayer.dev) - An alternative to Android's MediaPlayer API for playing audio and video
+- [MVVM Architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) - Separation of the development of the graphical user interface from the development of the business logic.
 
 
 ## Contributing
 
 I whould be very grateful if you could provide me any feedback about the code, structure or anything that you can report that could make me a better developer!
-Also, you can use this Project as you wish, it's free!
+Also, you can use this Project as you wish.
 
 Email: geocdias@gmail.com
 
