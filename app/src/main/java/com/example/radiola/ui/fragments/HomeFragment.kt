@@ -32,7 +32,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     subscribeToObservers()
 
     songAdapter.setOnClickListener { song ->
-      println("Play the song $song")
       mainViewModel.playOrToggleSong(song)
     }
   }
